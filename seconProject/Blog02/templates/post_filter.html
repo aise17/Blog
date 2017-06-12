@@ -1,0 +1,31 @@
+{% extends "base.html"%}
+
+{%block title%} Post filter {%endblock%}
+
+{%block content%}
+	<div id="con">
+		{%if list_post %}
+
+		<tr>Post Found</tr>
+			{%for post in list_post%}
+				<hr>
+				<table id="tab">
+
+					<tr>
+						<td><a href="/comment/{{post.id}}" style="color: black"><h2>{{post.title|upper}}</h2></a></td>
+
+						<td><p>Author: {{post.author}}</p></td>
+					</tr>
+						
+					<tr>
+						<td><spam>{{post.body}}</spam></td>
+					</tr>
+
+				</table>
+			{%endfor%}
+
+		{%else%}
+			Post not found
+		{%endif%}
+	</div>
+{%endblock%}

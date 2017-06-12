@@ -1,0 +1,50 @@
+{% extends "base.html"%}
+
+{%block title%} Comments Filter {%endblock%}
+
+{%block content%}
+	<div id="con">
+		
+
+			
+
+			<hr>
+				<table id="tab">
+
+					<tr>
+						<td><h2>{{post.title|upper}}</h2></td>
+
+						<td><p>Author: {{post.author}}</p></td>
+					</tr>
+						
+					<tr>
+						<td><spam>{{post.body}}</spam></td>
+					</tr>
+
+				</table>
+
+			{%if list_comment %}
+			{%for comment in list_comment%}
+				<table id="tab">
+
+					<tr>
+						<td><h2>{{comment.title|upper}}</h2></td>
+						<td><p>Author: {{comment.author}}</p></td>
+					</tr>
+
+					<tr>
+						<td><spam>{{comment.body}}</spam></td>
+					</tr>
+
+				</table>
+			{%endfor%}
+
+		{%else%}
+			Comment not found
+		{%endif%}
+
+<a href="/newComment/{{post.id}}"><h2><p> Make your comment</p></h2></a>
+
+</div>
+{%endblock%}
+

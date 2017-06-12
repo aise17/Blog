@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+
+{%block content%}
+<div>
+
+	Author: {{post.author}}
+	<hr>
+	{{post.title}}
+	<hr>
+	{{post.body}}
+
+</div>
+<hr>
+<hr>
+<div>
+	{%for comment in comments%}
+	Comment title: {{comment.title}}
+	<p>{{comment.body}}</p>
+	{%endfor%}
+</div>
+
+{%endblock%}
